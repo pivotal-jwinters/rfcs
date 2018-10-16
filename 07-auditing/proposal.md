@@ -15,11 +15,17 @@ type AuditEvent struct {
 }
 ```
 
+### Where do we emit audit events
+
+The simplest method would be to create a generic middleware that emits audit events as the request comes in. At this point we know the `userid` and `action`, and we would simply need to collect the query params/post data and dump that into a generic `metadata` field.
+
+
 ### What to do with audit events 
 
 - Do we want to store audit events in our database?
 - Do we want to emit audit events that an operator can consume?
 - Do we want to log audit events in some meaningful way?
+
 
 #### Store them
 
